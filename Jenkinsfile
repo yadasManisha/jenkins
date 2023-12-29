@@ -25,8 +25,6 @@ pipeline {
         stage('deploy') {
             steps {
                 sh '''                    
-                    sudo apt update -y
-                    sudo apt-get install python3 -y
                     cd /home/jenkins/workspace/multi_branch_prod
                     pip3 install flask
                     nohup python3 app.py
