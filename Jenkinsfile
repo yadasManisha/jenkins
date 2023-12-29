@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'staging'
+    }
     environment{
         ssh_key = credentials('ssh_key')
     }
@@ -17,19 +19,17 @@ pipeline {
         
         stage('checkout') {
              steps {
-               git branch: 'prod', credentialsId: 'c95654d9-bda3-4cdc-a75d-6951e4211bfd', url: 'https://github.com/yadasManisha/jenkins.git'
+               git branch: 'staging', credentialsId: 'c95654d9-bda3-4cdc-a75d-6951e4211bfd', url: 'https://github.com/yadasManisha/jenkins.git'
                 }
         }
-        stage('deploy') {
-            steps {
-                sh '''                    
-                    sudo apt update -y
-                    sudo apt-get install python3 -y
-                    cd /home/jenkins/workspace/flaskapp
-                    pip3 install flask
-                    nohup python3 app.py
-                    ''' }
-        }
+        // stage('deploy') {
+        //     steps {
+        //         sh '''                    
+        //             cd /home/jenkins/workspace/flaskapp
+        //             pip3 install flask
+        //             nohup python3 app.py
+        //             ''' }
+        // }
         
     }
     
