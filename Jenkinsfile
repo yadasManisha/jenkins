@@ -22,14 +22,14 @@ pipeline {
                git branch: 'uat', credentialsId: 'c95654d9-bda3-4cdc-a75d-6951e4211bfd', url: 'https://github.com/yadasManisha/jenkins.git'
                 }
         }
-        // stage('deploy') {
-        //     steps {
-        //         sh '''                    
-        //             cd /home/jenkins/workspace/flaskapp
-        //             pip3 install flask
-        //             nohup python3 app.py
-        //             ''' }
-        // }
+        stage('deploy') {
+            steps {
+                sh '''                    
+                    cd /home/jenkins/workspace/multi_branch_uat
+                    pip3 install flask
+                    nohup python3 app.py
+                    ''' }
+        }
         
     }
     
