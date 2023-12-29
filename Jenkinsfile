@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'prod'
+}
     environment{
         ssh_key = credentials('ssh_key')
     }
