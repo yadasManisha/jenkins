@@ -26,8 +26,9 @@ pipeline {
             steps {
                 sh '''                    
                     cd /home/jenkins/workspace/multi_branch_prod
+                    sudo apt install pip
                     pip3 install flask
-                    nohup python3 app.py
+                    flask run
                     ''' }
         }
         
