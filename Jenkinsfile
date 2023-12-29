@@ -16,7 +16,6 @@ pipeline {
         }
         
         stage('checkout') {
-            sh 'cd /home/jenkins/workspace'
              steps {
                git branch: 'prod', credentialsId: 'c95654d9-bda3-4cdc-a75d-6951e4211bfd', url: 'https://github.com/yadasManisha/jenkins.git'
                 }
